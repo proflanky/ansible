@@ -1,0 +1,8 @@
+---
+- name: "Create Azure VM"
+  hosts: "localhost"
+  become: true
+  collections:
+    - azure.azcollection
+  roles:
+    - { role: setup }
