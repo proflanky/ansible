@@ -6,3 +6,5 @@
     - azure.azcollection
   roles:
     - { role: setup }
+  plugin: azure.azcollection.azure_rm
+    auth_source: auto
