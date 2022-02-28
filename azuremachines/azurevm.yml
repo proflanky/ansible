@@ -1,6 +1,6 @@
 ---
 - name: "Create Azure VM"
-  hosts: "localhost"
+  hosts: "all"
   become: true
   collections:
     - azure.azcollection
