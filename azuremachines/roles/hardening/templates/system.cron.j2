@@ -1,0 +1,35 @@
+MAILTO={{ MAILTO }}
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Update DB (23:00)
+00 23 * * * root /usr/bin/updatedb
+
+# Check Disk Space (23:45)
+45 23 * * * root /bin/df -Th --total | logger
+
+# Check Network Service (Three times per day)
+50 8,16,23 * * * root /bin/netstat -tulpen | logger
+
+# Clean up apt (Every Sunday at 23:35)
+35 23 * * 0 root /usr/bin/apt clean && /usr/bin/apt autoclean
+
+# Log last users (23:40)
+40 23 * * * root /usr/bin/lastlog | grep -vi "Never" | logger
+
+# Sync time (Every Sunday at 23:30)
+30 23 * * 0 root /usr/sbin/ntpdate -v de.pool.ntp.org > /dev/null 2>&1
+
+# Log files larger than 1GB (Every Sunday at 23:55)
+55 23 * * 0 root /usr/bin/find / -type f -size +1G 2> /dev/null | /usr/bin/xargs -d '\n' ls -lah | logger
+
+# Daily Logwatch Report (02:00)
+0 2 * * * root /usr/sbin/logwatch --detail low --format text --range yesterday --mailto {{ MAILTO }}
+
+# Daily Borg Backups (03:00)
+0 3 * * * root /usr/bin/borg create /var/backups/borg/::etc-$(date -iso) /etc
+10 3 * * * root /usr/bin/borg create /var/backups/borg/::etc-$(date -iso) /opt
+20 3 * * * root /usr/bin/borg create /var/backups/borg/::etc-$(date -iso) /var
+30 3 * * * root /usr/bin/borg create /var/backups/borg/::etc-$(date -iso) /root
+
+40 3 * * * root /usr/bin/borg prune -v /var/backups/borg --keep-daily=21 --keep-weekly=4 --keep-monthly=6
