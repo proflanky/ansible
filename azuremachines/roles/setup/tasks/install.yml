@@ -71,8 +71,7 @@
   - name: "sleep 5 min before next part of script"
     pause:
       minutes: 5
-    
----      
+       
 - hosts: provisioning
   become: true
   tasks:
