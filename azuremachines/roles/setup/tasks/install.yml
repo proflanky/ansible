@@ -68,6 +68,10 @@ i  - name: Create resource group
     debug:
       msg: "{{ groups }}"
       
+  - name: "sleep 5 min before next part of script"
+    ansible.builtin.shell:
+        cmd: sleep 5m
+      
 - name: "Setup VM"
   hosts: provisioning
   become: true
