@@ -72,8 +72,7 @@
     ansible.builtin.shell:
       cmd: sleep 5m
       
-- name: "Setup VM"
-  hosts: provisioning
+- hosts: provisioning
   become: true
   tasks:
   - name: "debsums > /root/inventory/debsums-{{ ansible_date_time.date }}.txt"
@@ -96,4 +95,3 @@
   - name: "lynis audit system --quiet --auditor \"Ansible Initial Setup Auditor\" --logfile /root/inventory/lynis-{{ ansible_date_time.date }}.txt"
     ansible.builtin.shell:
       cmd: 'lynis audit system --quiet --auditor "Ansible Initial Setup Auditor" --logfile /root/inventory/lynis-{{ ansible_date_time.date }}.txt'
-
