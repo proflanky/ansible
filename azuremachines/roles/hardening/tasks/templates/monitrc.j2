@@ -1,0 +1,27 @@
+set daemon 120 # Check every two minutes
+
+set mail-format {
+       from: {{ MAILTO }}
+       subject: monit alert --  $EVENT $SERVICE
+       message: $EVENT Service $SERVICE
+                Date:        $DATE
+                Action:      $ACTION
+                Host:        $HOST
+                Description: $DESCRIPTION
+
+                Zeiss Core DevOps Monit Alerting
+}
+
+# Do not alert when Monit start,stop or perform a user initiated action
+set alert {{ MAILTO }} not on { instance, action }
+
+set httpd port 2812 and
+    use address localhost
+    allow localhost
+    allow @monit
+    allow @users readonly
+		allow admin:{{ MONIT_PASS }}
+
+set mailserver localhost port 25
+
+include /etc/monit/conf.d/*.cfg
