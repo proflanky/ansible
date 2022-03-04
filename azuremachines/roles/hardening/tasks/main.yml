@@ -1,0 +1,2 @@
+- include_tasks: inventory.yml
+- include_tasks: configuration.yml
