@@ -1,0 +1,3 @@
+- name: "find /root/inventarisierung/ -type f -print0 |xargs -0 sha256sum > /root/inventarisierung/sha256sum-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: find /root/inventarisierung/ -type f -print0 |xargs -0 sha256sum > /root/inventarisierung/sha256sum-{{ ansible_date_time.date }}.txt

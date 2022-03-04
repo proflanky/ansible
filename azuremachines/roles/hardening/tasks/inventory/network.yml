@@ -1,0 +1,11 @@
+- name: "route -n  > /root/inventarisierung/net_route-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'route -n  > /root/inventarisierung/net_route-{{ ansible_date_time.date }}.txt'
+
+- name: "ifconfig -a  > /root/inventarisierung/net_ip-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'ifconfig -a  > /root/inventarisierung/net_ip-{{ ansible_date_time.date }}.txt'
+
+- name: "netstat -tulpn > /root/inventarisierung/net_stat-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'netstat -tulpn > /root/inventarisierung/net_stat-{{ ansible_date_time.date }}.txt'

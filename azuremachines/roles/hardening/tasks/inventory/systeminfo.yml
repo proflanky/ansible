@@ -1,0 +1,55 @@
+- name: "df -h > /root/inventarisierung/festplatte-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'df -h > /root/inventarisierung/festplatte-{{ ansible_date_time.date }}.txt'
+
+- name: "du -sh /* | grep -v /proc > /root/inventarisierung/ordnerspeicher-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'du -sh /* | grep -v /proc > /root/inventarisierung/ordnerspeicher-{{ ansible_date_time.date }}.txt'
+
+- name: "dpkg -l > /root/inventarisierung/pakete-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'dpkg -l > /root/inventarisierung/pakete-{{ ansible_date_time.date }}.txt'
+
+- name: "lastlog > /root/inventarisierung/lastlog-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'lastlog > /root/inventarisierung/lastlog-{{ ansible_date_time.date }}.txt'
+
+- name: "/usr/bin/w > /root/inventarisierung/whats-up-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: '/usr/bin/w > /root/inventarisierung/whats-up-{{ ansible_date_time.date }}.txt'
+
+- name: "uname -a > /root/inventarisierung/kernelversion-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'uname -a > /root/inventarisierung/kernelversion-{{ ansible_date_time.date }}.txt'
+
+- name: "sysctl -A > /root/inventarisierung/sysctl.settings-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'sysctl -A > /root/inventarisierung/sysctl.settings-{{ ansible_date_time.date }}.txt'
+
+- name: "free -m > /root/inventarisierung/ramspeicher-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'free -m > /root/inventarisierung/ramspeicher-{{ ansible_date_time.date }}.txt'
+
+- name: "dmidecode -t 4 > /root/inventarisierung/cpu-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'dmidecode -t 4 > /root/inventarisierung/cpu-{{ ansible_date_time.date }}.txt'
+
+- name: "cat /etc/group > /root/inventarisierung/group-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'cat /etc/group > /root/inventarisierung/group-{{ ansible_date_time.date }}.txt'
+
+- name: "cat /etc/passwd > /root/inventarisierung/passwd-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'cat /etc/passwd > /root/inventarisierung/passwd-{{ ansible_date_time.date }}.txt'
+
+- name: "ps axjf > /root/inventarisierung/processlist-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'ps axjf > /root/inventarisierung/processlist-{{ ansible_date_time.date }}.txt'
+
+- name: "systemctl list-dependencies graphical.target > /root/inventarisierung/services-tree-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'systemctl list-dependencies graphical.target > /root/inventarisierung/services-tree-{{ ansible_date_time.date }}.txt'
+
+- name: "systemctl list-units --all --type=service --no-pager > /root/inventarisierung/services-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'systemctl list-units --all --type=service --no-pager > /root/inventarisierung/services-{{ ansible_date_time.date }}.txt'

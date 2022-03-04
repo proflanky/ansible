@@ -1,0 +1,3 @@
+- name: "tar cfzv /var/sicherungen/inventarisierung/inventarisierung-{{ ansible_date_time.date }}.tgz /root/inventarisierung/*"
+  ansible.builtin.shell:
+    cmd: 'tar cfzv /var/sicherungen/inventarisierung/inventarisierung-{{ ansible_date_time.date }}.tgz /root/inventarisierung/*'

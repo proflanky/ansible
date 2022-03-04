@@ -1,0 +1,20 @@
+- name: "debsums > /root/inventarisierung/debsums-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'debsums > /root/inventarisierung/debsums-{{ ansible_date_time.date }}.txt'
+  ignore_errors: yes
+
+- name: "getfacl -R / | grep -v /proc > /root/inventarisierung/berechtigungen-{{ ansible_date_time.date }}.acl"
+  ansible.builtin.shell:
+    cmd: 'getfacl -R / | grep -v /proc > /root/inventarisierung/berechtigungen-{{ ansible_date_time.date }}.acl'
+
+- name: "ufw status verbose > /root/inventarisierung/ufw-firewall-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'ufw status verbose > /root/inventarisierung/ufw-firewall-{{ ansible_date_time.date }}.txt'
+
+- name: "nmap -p 1-65535 -T4 -v localhost > /root/inventarisierung/nmap-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'nmap -p 1-65535 -T4 -v localhost > /root/inventarisierung/nmap-{{ ansible_date_time.date }}.txt'
+
+- name: "lynis audit system --quiet --auditor \"Ansible Initial Setup Auditor\" --logfile /root/inventarisierung/lynis-{{ ansible_date_time.date }}.txt"
+  ansible.builtin.shell:
+    cmd: 'lynis audit system --quiet --auditor "Ansible Initial Setup Auditor" --logfile /root/inventarisierung/lynis-{{ ansible_date_time.date }}.txt'
