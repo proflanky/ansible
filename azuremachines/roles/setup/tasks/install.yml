@@ -59,7 +59,7 @@
         version: 20.04.202201310
   - name: Add host to prov group
     add_host:
-      name: "{{ vm_Name }}"
+      name: "{{ output_ip_address.state.ip_address }}"
       groups: provisioning
     tags:
       - inventory
