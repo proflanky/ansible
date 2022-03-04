@@ -1,0 +1,20 @@
+## Base Config
+
+unbind C-b
+unbind %
+unbind '"'
+
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+
+### Pane Selection
+
+bind-key -n C-w select-pane -t :.+
+
+
+### Toggle Mouse
+
+set-option -g mouse on
+set -g default-terminal rxvt-unicode-256color
+

@@ -1,0 +1,70 @@
+###
+# venv
+###
+alias workon='source virtualenvwrapper.sh && workon'
+alias mkvirtualenv='source virtualenvwrapper.sh && mkvirtualenv'
+alias rmvirtualenv='source virtualenvwrapper.sh && rmvirtualenv'
+
+###
+# Misc
+###
+
+alias c='clear'
+alias tr='sudo ./tomcat restart'
+alias svim='sudo vim'
+alias fhere='find . -name'
+alias mkdir='mkdir -pv'
+alias muttspam='sudo mutt -f /home/spam/Maildir'
+alias cd..='cd ..'
+alias df='df -h | grep -v docker'
+
+###
+# Logging
+###
+
+alias lsys='sudo less /var/log/syslog'
+alias tfsys='sudo tail -f /var/log/syslog'
+alias tfmail='sudo tail -f /var/log/mail.log'
+alias lmail='sudo less /var/log/mail.log'
+alias tf='sudo tail -f'
+
+###
+# Grep
+###
+
+alias grep='grep --color=auto'
+
+###
+# Listings
+###
+
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -al --color=auto'
+alias lt='ls -alt --color=auto'
+alias lg='ls -al | grep'
+
+###
+# Processes
+###
+
+alias pg='ps aux | grep'
+
+###
+# Git
+###
+
+alias git='LANG=en_US git'
+alias gs='git status'
+alias ga='git add'
+alias gpl='git pull'
+alias gch='git checkout'
+alias gcl='git clone'
+alias gps='git push'
+alias gc='git commit'
+
+###
+# tmux
+###
+
+alias tmux='tmux -2'
