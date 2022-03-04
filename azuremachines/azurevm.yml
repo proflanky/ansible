@@ -6,3 +6,8 @@
     - azure.azcollection
   roles:
     - { role: setup }
+- name: "Setup VM"    
+  hosts: provisioning
+  become: true
+  roles:
+    - { role: hardening }
