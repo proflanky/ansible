@@ -1,0 +1,46 @@
+- name: "Copy bashrc to /{etc/bash.bashrc,root/.bashrc}"
+  ansible.builtin.template:
+    src: "bashrc.j2"
+    dest: "{{ item }}"
+  with_items:
+    - /etc/bash.bashrc
+    - /root/.bashrc
+
+- name: "Copy Bash Aliases"
+  ansible.builtin.template:
+    src: "aliases.j2"
+    dest: "/etc/bash.aliases"
+
+- name: "Copy .dircolors to /root"
+  ansible.builtin.template:
+    src: "dircolors.j2"
+    dest: "/root/.dircolors"
+
+- name: "Copy .tmux.conf to /root"
+  ansible.builtin.template:
+    src: "tmux.conf.j2"
+    dest: "/root/.tmux.conf"
+
+- name: "Copy .vimrc to /root"
+  ansible.builtin.template:
+    src: "vimrc.j2"
+    dest: "/root/.vimrc"
+
+- name: "Create /root/.gnupg directory"
+  ansible.builtin.file:
+    path: /root/.gnupg
+    state: directory
+
+- name: "Copy gpg.conf to /root/.gnupg"
+  ansible.builtin.template:
+    src: "gpg.conf.j2"
+    dest: "/root/.gnupg/gpg.conf"
+
+- name: "Copy gpg-agent.conf to /root/.gnupg"
+  ansible.builtin.template:
+    src: "gpg-agent.conf.j2"
+    dest: "/root/.gnupg/gpg-agent.conf"
+
+- name: "Reloade GPG Agent"
+  ansible.builtin.shell:
+    cmd: echo "RELOADAGENT" | gpg-connect-agent

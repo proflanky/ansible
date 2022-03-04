@@ -1,0 +1,10 @@
+- name: "Add BorgBackup Repo"
+  ansible.builtin.apt_repository:
+    repo: ppa:costamagnagianfranco/borgbackup
+    state: present
+    update_cache: yes
+
+- name: "Install BorgBackup"
+  ansible.builtin.apt:
+    name: borgbackup
+    state: present

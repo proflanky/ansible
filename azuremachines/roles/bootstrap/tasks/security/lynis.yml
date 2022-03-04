@@ -1,0 +1,15 @@
+- name: "Install Cisofy Key (Manual installation due to self-signed cert)"
+  ansible.builtin.shell:
+    cmd: wget -O - https://packages.cisofy.com/keys/cisofy-software-public.key --no-check-certificate | sudo apt-key add -
+
+- name: "Add lynis apt repository"
+  ansible.builtin.apt_repository:
+    repo: 'deb https://packages.cisofy.com/community/lynis/deb/ stable main'
+    state: present
+    filename: cisofy-lynis.list
+
+- name: "Install lynis"
+  apt:
+    name: lynis
+    state: present
+    update_cache: yes

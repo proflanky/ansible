@@ -1,0 +1,31 @@
+- name: "Check if /swapfile exists"
+  stat:
+    path: /swapfile
+  register: 'swapfile'
+
+- name: "Create /swapfile"
+  command: dd if=/dev/zero of=/swapfile bs=1M count=4096
+  when: not swapfile.stat.exists
+
+- name: "Set permissions"
+  ansible.builtin.file:
+    path: /swapfile
+    owner: root
+    group: root
+    mode: '0600'
+  when: 'not swapfile.stat.exists'
+
+- name: "Make Swap"
+  command: mkswap /swapfile
+  when: 'not swapfile.stat.exists'
+
+- name: "Swapon"
+  command: "swapon /swapfile"
+  when: 'not swapfile.stat.exists'
+
+- name: "Add swap to /etc/fstab"
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    line: '/swapfile none swap sw 0 0 # swapfile'
+    backup: yes
+  when: 'not swapfile.stat.exists'

@@ -1,0 +1,3 @@
+- name: "Install Glances"
+  pip:
+    name: glances

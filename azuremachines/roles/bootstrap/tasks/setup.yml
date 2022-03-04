@@ -1,0 +1,4 @@
+- include_tasks: "setup/swap.yml"
+- include_tasks: "setup/update.yml"
+- include_tasks: "setup/install.yml"
+- include_tasks: "setup/bash.yml"

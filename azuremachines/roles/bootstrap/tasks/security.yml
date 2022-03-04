@@ -1,0 +1,3 @@
+- include_tasks: "security/glances.yml"
+- include_tasks: "security/lynis.yml"
+- include_tasks: "security/borg.yml"

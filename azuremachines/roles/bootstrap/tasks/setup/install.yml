@@ -1,0 +1,63 @@
+- name: "Add git apt repository"
+  ansible.builtin.apt_repository:
+    repo: 'ppa:git-core/ppa'
+
+- name: "Install git"
+  ansible.builtin.apt:
+    name: "git"
+    state: "present"
+
+- name: "Install basic packages"
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - aptitude
+    - aide
+    - acl
+    - apg
+    - apticron
+    - apt-transport-https
+    - atop
+    - bzip2
+    - curl
+    - debian-goodies
+    - debsums
+    - dmidecode
+    - dnsutils
+    - fail2ban
+    - git
+    - gpg
+    - htop
+    - less
+    - liblz4-tool
+    - lnav
+    - locate
+    - logwatch
+    - lshw
+    - lynx
+    - mlocate
+    - moreutils
+    - monit
+    - molly-guard
+    - most
+    - nmap
+    - net-tools
+    - ntp
+    - ntpdate
+    - prometheus-node-exporter
+    - psmisc
+    - psutils
+    - pv
+    - python3-pip
+    - rkhunter
+    - rng-tools
+    - screen
+    - sshfs
+    - smartmontools
+    - sysstat
+    - traceroute
+    - ufw
+    - unzip
+    - zip
+    - vim
