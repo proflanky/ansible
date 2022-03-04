@@ -57,3 +57,13 @@
         publisher: Canonical
         sku: '20_04-lts'
         version: 20.04.202201310
+  - name: Add host to prov group
+    add_host:
+      name: "{{ vm_Name }}"
+      groups: provisioning
+    tags:
+      - inventory
+
+  - name: "debug"
+    debug:
+      msg: "{{ groups }}"
