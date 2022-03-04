@@ -1,0 +1,7 @@
+- name: "Copy Cronjob Template"
+  ansible.builtin.template:
+    src: system.cron.j2
+    dest: /etc/cron.d/system.cron
+    owner: root
+    group: root
+    mode: 0640

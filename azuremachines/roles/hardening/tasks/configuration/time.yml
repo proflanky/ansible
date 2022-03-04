@@ -1,0 +1,12 @@
+- name: "Setup Timezone (Europe/Berlin)"
+  community.general.timezone:
+    name: Europe/Berlin
+
+- name: "get timezone"
+  ansible.builtin.shell:
+    cmd: timedatectl status
+  register: timedatectl_status
+
+- name: "echo timezone"
+  debug:
+    var: timedatectl_status.stdout
