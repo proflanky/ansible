@@ -7,7 +7,7 @@
   roles:
     - { role: setup }
 - name: "Setup VM"    
-  hosts: {{ output_ip_address.state.ip_address }}
+  hosts: "{{ output_ip_address.state.ip_address }}"
   become: true
   roles:
     - { role: hardening }
