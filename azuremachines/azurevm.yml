@@ -10,5 +10,4 @@
   hosts: provisioning
   become: true
   roles:
-    - { role: hardening }
     - { role: bootstrap }
