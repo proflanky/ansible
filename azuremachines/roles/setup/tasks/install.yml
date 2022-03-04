@@ -1,4 +1,4 @@
-i  - name: Create resource group
+  - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ myResourceGroup }}"
       location: eastus
