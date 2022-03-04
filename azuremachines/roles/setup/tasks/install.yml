@@ -71,7 +71,7 @@
   - name: "sleep 5 min before next part of script"
     ansible.builtin.shell:
       cmd: sleep 5m
-      
+---      
 - hosts: provisioning
   become: true
   tasks:
