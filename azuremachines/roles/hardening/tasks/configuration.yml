@@ -1,5 +1,0 @@
-- include_tasks: "configuration/time.yml"
-- include_tasks: "configuration/monit.yml"
-- include_tasks: "configuration/crontab.yml"
-- include_tasks: "configuration/sshd.yml"
-- include_tasks: "configuration/borg.yml"
