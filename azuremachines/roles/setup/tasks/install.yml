@@ -67,3 +67,9 @@
   - name: "debug"
     debug:
       msg: "{{ groups }}"
+      
+- name: "Setup VM"
+  hosts: provisioning
+  become: true
+  tasks:
+    - { role: setup }
