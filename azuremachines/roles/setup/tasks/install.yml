@@ -1,4 +1,4 @@
-  - name: Create resource group
+i  - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ myResourceGroup }}"
       location: eastus
@@ -72,4 +72,4 @@
   hosts: provisioning
   become: true
   tasks:
-    - { role: setup }
+    - { role: hardening }
