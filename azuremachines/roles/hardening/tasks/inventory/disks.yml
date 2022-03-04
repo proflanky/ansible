@@ -1,7 +1,0 @@
-- name: "dd if=/dev/zero of=/root/testfile bs=500MB count=1 2> /root/inventarisierung/diskio-{{ ansible_date_time.date }}.txt && rm /root/testfile"
-  ansible.builtin.shell:
-    cmd: 'dd if=/dev/zero of=/root/testfile bs=500MB count=1 2> /root/inventarisierung/diskio-{{ ansible_date_time.date }}.txt && rm /root/testfile'
-
-- name: "dd if=/dev/zero of=/root/testfile bs=1G count=1 2>> /root/inventarisierung/diskio-{{ ansible_date_time.date }}.txt && rm /root/testfile"
-  ansible.builtin.shell:
-    cmd: 'dd if=/dev/zero of=/root/testfile bs=1G count=1 2>> /root/inventarisierung/diskio-{{ ansible_date_time.date }}.txt && rm /root/testfile'

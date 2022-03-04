@@ -1,8 +1,0 @@
-- name: "find / -ls | grep -v /proc > /root/inventarisierung/find-{{ ansible_data_time.date }}.txt"
-  ansible.builtin.shell:
-    cmd: 'find / -ls | grep -v /proc > /root/inventarisierung/find-{{ ansible_date_time.date }}.txt'
-  ignore_errors: yes
-
-- name: "'ls -la /* | grep -v /proc' > /root/inventarisierung/root-find-{{ ansible_date_time.date }}.txt"
-  ansible.builtin.shell:
-    cmd: 'ls -la /* | grep -v /proc > /root/inventarisierung/root-find-{{ ansible_date_time.date }}.txt'

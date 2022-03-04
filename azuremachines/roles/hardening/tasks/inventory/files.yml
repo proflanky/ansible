@@ -1,7 +1,0 @@
-- name: "Backup /{etc,bin,sbin,usr} to /root/inventarisierung"
-  command: rsync -avzH /{{ item }} /root/inventarisierung/
-  with_items:
-    - etc
-    - bin
-    - sbin
-    - usr
