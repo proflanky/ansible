@@ -69,8 +69,9 @@
       msg: "{{ groups }}"
       
   - name: "sleep 5 min before next part of script"
-    ansible.builtin.shell:
-      cmd: sleep 5m
+    pause:
+      minutes: 5
+    
 ---      
 - hosts: provisioning
   become: true
