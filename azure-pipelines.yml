@@ -32,6 +32,3 @@ steps:
          python -m virtualenv ansible 
          source ansible/bin/activate
          python -m pip install ansible
-         
-         
-        displayName: 'Installing Ansible'
