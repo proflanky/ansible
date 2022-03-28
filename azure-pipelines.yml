@@ -37,4 +37,5 @@ steps:
   inputs:
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: './azuremachines/azurevm.yml'
-    inventoriesAgentMachine: 'noInventory'
+    inventoriesAgentMachine: 'hostList'
+    inventoryHostListAgentMachine: 'localhost'
