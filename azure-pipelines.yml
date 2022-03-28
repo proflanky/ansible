@@ -32,3 +32,9 @@ steps:
          python -m virtualenv ansible 
          source ansible/bin/activate
          python -m pip install ansible
+
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: './azuremachines/azurevm.yml'
+    inventoriesAgentMachine: 'noInventory'
